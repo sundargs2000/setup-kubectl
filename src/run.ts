@@ -20,7 +20,7 @@ export function getExecutableExtension(): string {
 export function getkubectlDownloadURL(version: string): string {
     switch (os.type()) {
         case 'Linux':
-            return util.format('https://storage.googleapis.com/kubernetes-release/release/%s/bin/linux/amd64/kubectl', version);
+            return util.format('https://storage.googleapis.com/kubernetes-release/release/%s/bin/linux/amd64/kubectl.exe', version);
 
         case 'Darwin':
             return util.format('https://storage.googleapis.com/kubernetes-release/release/%s/bin/darwin/amd64/kubectl', version);
