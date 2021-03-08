@@ -74,12 +74,12 @@ describe('Testing all functions in run file.', () => {
         jest.spyOn(os, 'type').mockReturnValue('Windows_NT');
         jest.spyOn(fs, 'chmodSync').mockImplementation(() => {});
         
-        expect(await run.downloadKubectl('v1.15.0')).toBe('pathToCachedTool\\kubectl.exe');
+        expect(await run.downloadKubectl('v1.15.0')).toBe('pathToCachedTool/kubectl.exe');
         expect(toolCache.find).toBeCalledWith('kubectl', 'v1.15.0');
         expect(toolCache.downloadTool).toBeCalled();
         expect(toolCache.cacheFile).toBeCalled();
         expect(os.type).toBeCalled();
-        expect(fs.chmodSync).toBeCalledWith('pathToCachedTool\\kubectl.exe', '777');
+        expect(fs.chmodSync).toBeCalledWith('pathToCachedTool/kubectl.exe', '777');
     });
 
     test('downloadKubectl() - throw DownloadKubectlFailed error when unable to download kubectl', async () => {
@@ -96,9 +96,9 @@ describe('Testing all functions in run file.', () => {
         jest.spyOn(os, 'type').mockReturnValue('Windows_NT');
         jest.spyOn(fs, 'chmodSync').mockImplementation(() => {});
         
-        expect(await run.downloadKubectl('v1.15.0')).toBe('pathToCachedTool\\kubectl.exe');
+        expect(await run.downloadKubectl('v1.15.0')).toBe('pathToCachedTool/kubectl.exe');
         expect(toolCache.find).toBeCalledWith('kubectl', 'v1.15.0');
         expect(os.type).toBeCalled();
-        expect(fs.chmodSync).toBeCalledWith('pathToCachedTool\\kubectl.exe', '777');
+        expect(fs.chmodSync).toBeCalledWith('pathToCachedTool/kubectl.exe', '777');
     });
 });
